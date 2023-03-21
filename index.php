@@ -9,8 +9,11 @@
     <link rel="stylesheet" href="./assets/styles/style.css">
 </head>
 
-<body>
-    <div class="formContainer">
+<body style="margin: 0;">
+<div class="nav-bar">
+         <img src="https://edusogno.com/logo-black.svg" alt="">
+    </div>
+    <div class="formContainer backgroundIMG">
         <form action="./register.php" method="POST">
             <label for="firsName">First name:</label><br>
             <input type="text" name="fname" id="fname"><br><br>
