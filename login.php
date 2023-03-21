@@ -15,13 +15,15 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
                 $_SESSION['loggato'] = true;
                 $_SESSION['id'] = $row['id'];
                 $_SESSION['nome'] = $row['nome'];
+                $_SESSION['cognome'] = $row['cognome'];
+                $_SESSION['email'] = $row['email'];
 
                 header("location: loggedUser.php");
             }else{
                 echo "la password non è corretta";
             }
         }else{
-            echo "username non trovato";
+            echo "email non trovata";
         }
     }else{
         echo "Login Error";

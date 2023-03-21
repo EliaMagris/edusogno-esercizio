@@ -10,7 +10,7 @@ $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 $sql = "INSERT INTO utenti (nome, cognome, email, password) VALUES ('$name', '$lastName', '$email', '$hashed_password')";
 
 if ($connection->query($sql) === true) {
-    echo "registration successful";
+    header("location: loggedUser.php");
 } else {
     echo "registration error $sql." . $connection->error;
 }

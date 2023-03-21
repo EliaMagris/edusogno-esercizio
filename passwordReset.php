@@ -1,0 +1,36 @@
+<?php
+include("connection.php");
+
+if(!isset($_GET["code"])){
+    exit("Can't find page");
+}
+
+$code = $_GET["code"];
+
+$getEmailQuery = mysqli_query($connection, "SELECT email FROM reset_password WHERE code='$code'");
+if(mysqli_num_rows($getEmailQuery) == 0){
+    exit("Can't find page");
+}
+
+if(isset($_POST["password"])){
+    $pw = $_POST["password"];
+    $pw = md5($pw);
+
+    $row = mysqli_fetch_array($getEmailQuery);
+    $email = $row["email"];
+    $query = mysqli_query($connection, "UPDATE utenti SET password='$pw' WHERE email='$email'");
+
+    if($query){
+        $query = mysqli_query($connection, "DELETE FROM reset_password WHERE code='$code'");
+        exit("Password update");
+    }else{
+        exit("Something went wrong");
+    }
+}
+?>
+
+<form method="POST">
+    <input type="password" name="password" placeholder="New Password">
+    <br>
+    <input type="submit" name="submit" value="UpdatePassword">
+</form>
