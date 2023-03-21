@@ -7,21 +7,22 @@ if(!isset($_GET["code"])){
 
 $code = $_GET["code"];
 
-$getEmailQuery = mysqli_query($connection, "SELECT email FROM reset_password WHERE code='$code'");
+$getEmailQuery = mysqli_query($connection, "SELECT email FROM reset_password WHERE token='$code'");
+
 if(mysqli_num_rows($getEmailQuery) == 0){
     exit("Can't find page");
 }
 
 if(isset($_POST["password"])){
     $pw = $_POST["password"];
-    $pw = md5($pw);
+    $pw = password_hash($pw, PASSWORD_DEFAULT);
 
     $row = mysqli_fetch_array($getEmailQuery);
     $email = $row["email"];
     $query = mysqli_query($connection, "UPDATE utenti SET password='$pw' WHERE email='$email'");
 
     if($query){
-        $query = mysqli_query($connection, "DELETE FROM reset_password WHERE code='$code'");
+        $query = mysqli_query($connection, "DELETE FROM reset_password WHERE token='$code'");
         exit("Password update");
     }else{
         exit("Something went wrong");

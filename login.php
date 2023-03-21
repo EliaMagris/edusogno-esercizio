@@ -13,7 +13,6 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
             if(password_verify($password, $row['password'])){
                 session_start();
                 $_SESSION['loggato'] = true;
-                $_SESSION['id'] = $row['id'];
                 $_SESSION['nome'] = $row['nome'];
                 $_SESSION['cognome'] = $row['cognome'];
                 $_SESSION['email'] = $row['email'];
