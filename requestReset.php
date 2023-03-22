@@ -16,7 +16,7 @@ if (isset($_POST["email"])) {
     $code = uniqid(true);
 
     $query = mysqli_query($connection, "INSERT INTO reset_password(token, email) VALUES ('$code', '$emailTo')");
-    if(!$query){
+    if (!$query) {
         exit("Error");
     }
     //Create an instance; passing `true` enables exceptions
@@ -33,7 +33,7 @@ if (isset($_POST["email"])) {
         $mail->Port = 465; // TCP port to connect to
 
         //Recipients
-        $mail->setFrom('elia.magris@libero.it', 'exercise');
+        $mail->setFrom('elia.magris@libero.it', 'exercise edusogno');
         $mail->addAddress($emailTo); //Add a recipient
         $mail->addReplyTo('no-reply@libero.it', 'No Reply');
 
@@ -53,8 +53,30 @@ if (isset($_POST["email"])) {
 }
 
 ?>
-<form method="POST">
-    <input type="text" name="email" placeholder="email" autocomplete="off">
-    <br>
-    <input type="submit" name="submit" value="Reset email">
-</form>
+
+<!-- MODIFICHE STILE RESET PASSWORD -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Richiesta Reset</title>
+    <link rel="stylesheet" href="./assets/styles/style.css" />
+</head>
+
+<body style="margin: 0;">
+<div class="nav-bar">
+     <a href="./login.html"><img src="https://edusogno.com/logo-black.svg" alt="" /></a> 
+    </div>
+    <div class="formContainer backgroundIMG">
+    <form method="POST">
+        <input type="text" name="email" placeholder="email" autocomplete="off">
+        <br>
+        <input type="submit" style="background-color: red; cursor: pointer;" name="submit" value="RESET PASSWORD">
+    </form>
+</div>
+</body>
+</html>

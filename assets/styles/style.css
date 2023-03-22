@@ -1,35 +1,78 @@
-*{
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
+* {
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
 
-.formContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+.formContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-form{
-    border: 1px solid rgb(255, 255, 255);
-    padding: 2rem;
+/* FORM SETTINGS */
+
+form {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 2rem;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  background-color: rgb(14, 28, 94);
 }
 
-.nav-bar{
-    position: fixed;
-    width: 100%;
-    background-color: aqua;
-    padding: 1rem;
+form label {
+  text-align: center;
+  font-size: 1.3rem;
 }
 
-.nav-bar img{
-       width: 5%;
-    
+form input {
+  height: 2rem;
+  border-radius: 20px;
+  padding: 0 15px;
 }
 
-.backgroundIMG{
-    background-image: url(https://static.vecteezy.com/system/resources/previews/003/527/828/original/dark-blue-space-planet-background-illustration-with-stars-and-gradient-effect-can-use-for-poster-business-banner-flyer-advertisement-brochure-catalog-web-site-website-presentation-free-vector.jpg);
-    background-size: cover;
-    width: 100%;
+form p a {
+  color: red;
+}
+
+.buttonSubmit {
+  background-color: red;
+  margin: 15px 0;
+  cursor: pointer;
+}
+
+.relative{
+    position: relative;
+}
+
+.fa-solid{
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    color: rgb(14, 28, 94);
+    cursor: pointer;
+}
+
+/* Nav-bar and background */
+
+.nav-bar {
+  position: fixed;
+  width: 100%;
+  background-color: aqua;
+  padding: 1rem;
+}
+
+.nav-bar img {
+  width: 5%;
+}
+
+.backgroundIMG {
+  background-image: url(https://static.vecteezy.com/system/resources/previews/003/527/828/original/dark-blue-space-planet-background-illustration-with-stars-and-gradient-effect-can-use-for-poster-business-banner-flyer-advertisement-brochure-catalog-web-site-website-presentation-free-vector.jpg);
+  background-size: cover;
+  width: 100%;
 }
