@@ -64,6 +64,7 @@ form p a {
   position: fixed;
   width: 100%;
   background-color: aqua;
+  box-shadow: 0px 6px 30px 3px rgb(0, 225, 225);
   padding: 1rem;
 }
 

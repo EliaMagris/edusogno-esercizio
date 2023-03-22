@@ -13,6 +13,16 @@ if (isset($_POST["email"])) {
 
     $emailTo = $_POST["email"];
 
+    $check_query = mysqli_query($connection, "SELECT * FROM utenti WHERE email='$emailTo'");
+    if(mysqli_num_rows($check_query) == 0){
+        
+        echo '<script type="text/javascript">';
+        echo ' alert("Email non valida, riprova")'; 
+        echo '</script>';
+        echo '<p><a href="login.html">Torna al <strong>Login</strong> </a></p>';
+        exit('');
+    }
+
     $code = uniqid(true);
 
     $query = mysqli_query($connection, "INSERT INTO reset_password(token, email) VALUES ('$code', '$emailTo')");

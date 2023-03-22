@@ -62,7 +62,7 @@ if (isset($_POST["password"])) {
         <form method="POST">
             <input type="password" name="password" placeholder="New Password">
             <br>
-            <input type="submit" name="submit" value="UpdatePassword">
+            <input type="submit" style="background-color: red; name="submit" value="UpdatePassword">
         </form>
     </div>
 </body>
